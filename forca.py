@@ -15,16 +15,18 @@ def jogar():
         chute = input("Informe uma letra: ")
         chute = chute.strip()
 
-        index = 0
-        ##for letra in palavra_secreta:
-        for letra in palavra_secreta:
-            if(chute.lower() == letra.lower()):
-                letras_acertadas [index] = letra
-            index = index + 1
-
+        if(chute in palavra_secreta):
+            index = 0
+            for letra in palavra_secreta:
+                if(chute.lower() == letra.lower()):
+                    letras_acertadas [index] = letra
+                index = index + 1
+        else:
+            erros = erros + 1        
+        enforcou = erros == 6
         print(letras_acertadas)
 
-        print("jogando..")   
+        print("Fim jogo..")   
 
 if(__name__ == "__main__"):
     jogar()
